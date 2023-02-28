@@ -74,3 +74,40 @@ document
   .addEventListener("click", function () {
     message.remove();
   });
+
+///////////////////////////////////////////////
+// Styles
+message.style.backgroundColor = "#37383d";
+message.style.width = "120%";
+
+console.log(message.style.width); // we get value bcoz this is the inline style that we added
+console.log(message.style.color); // we get nothing bcoz this is either the css in other file or there is no such property
+
+console.log(getComputedStyle(message).color); //here using this function we can get he styles
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + "px";
+
+// Custom css property
+document.documentElement.style.setProperty("--color-primary", "orangered");
+
+///////////////////////////////////////////////
+// Attributess
+const logo = document.querySelector(".nav__logo");
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = "Beautiful Minimalist Logo";
+
+// Non-standard attributes
+console.log(logo.designer); //undefined
+console.log(logo.getAttribute("designer")); //abhi
+logo.setAttribute("company", "Bankist");
+
+///////////////////////////////////////////////
+// Classes
+// logo.classList.add();
+// logo.classList.remove();
+// logo.classList.toggle();
+// logo.classList.contains();

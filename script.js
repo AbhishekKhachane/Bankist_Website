@@ -36,29 +36,29 @@ document.addEventListener("keydown", function (e) {
 
 ///////////////////////////////////////////////
 // Selecting Elements
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
-const header = document.querySelector(".header");
-const allSections = document.querySelectorAll(".section");
-console.log(allSections);
+// const header = document.querySelector(".header");
+// const allSections = document.querySelectorAll(".section");
+// console.log(allSections);
 
-document.getElementById("section--1");
-const allButtons = document.getElementsByTagName("button");
-console.log(allButtons);
+// document.getElementById("section--1");
+// const allButtons = document.getElementsByTagName("button");
+// console.log(allButtons);
 
-console.log(document.getElementsByClassName("btn"));
+// console.log(document.getElementsByClassName("btn"));
 
 ///////////////////////////////////////////////
 // Creating and Inserting Elements
-const message = document.createElement("div");
-message.classList.add("cookie-message");
+// const message = document.createElement("div");
+// message.classList.add("cookie-message");
 // message.textContent = `We use cookies for improved functionality and analytics.`;
-message.innerHTML = `We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it !!</button>`;
+// message.innerHTML = `We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it !!</button>`;
 
 // header.prepend(message);
-header.append(message); // Here we are not able to see the message at both places in header. We can just see the appended one and not the prepended one.
+// header.append(message); // Here we are not able to see the message at both places in header. We can just see the appended one and not the prepended one.
 // This is because it moves the element and not copy it.To do so we need to first clone as shown :-
 
 // header.append(message.cloneNode(true)); // Now we can see the msg at both places
@@ -69,41 +69,41 @@ header.append(message); // Here we are not able to see the message at both place
 
 ///////////////////////////////////////////////
 // Deleting Elements
-document
-  .querySelector(".btn--close-cookie")
-  .addEventListener("click", function () {
-    message.remove();
-  });
+// document
+//   .querySelector(".btn--close-cookie")
+//   .addEventListener("click", function () {
+//     message.remove();
+//   });
 
 ///////////////////////////////////////////////
 // Styles
-message.style.backgroundColor = "#37383d";
-message.style.width = "120%";
+// message.style.backgroundColor = "#37383d";
+// message.style.width = "120%";
 
-console.log(message.style.width); // we get value bcoz this is the inline style that we added
-console.log(message.style.color); // we get nothing bcoz this is either the css in other file or there is no such property
+// console.log(message.style.width); // we get value bcoz this is the inline style that we added
+// console.log(message.style.color); // we get nothing bcoz this is either the css in other file or there is no such property
 
-console.log(getComputedStyle(message).color); //here using this function we can get he styles
+// console.log(getComputedStyle(message).color); //here using this function we can get he styles
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + "px";
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + "px";
 
 // Custom css property
-document.documentElement.style.setProperty("--color-primary", "orangered");
+// document.documentElement.style.setProperty("--color-primary", "orangered");
 
 ///////////////////////////////////////////////
 // Attributess
-const logo = document.querySelector(".nav__logo");
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// const logo = document.querySelector(".nav__logo");
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
 
-logo.alt = "Beautiful Minimalist Logo";
+// logo.alt = "Beautiful Minimalist Logo";
 
 // Non-standard attributes
-console.log(logo.designer); //undefined
-console.log(logo.getAttribute("designer")); //abhi
-logo.setAttribute("company", "Bankist");
+// console.log(logo.designer); //undefined
+// console.log(logo.getAttribute("designer")); //abhi
+// logo.setAttribute("company", "Bankist");
 
 ///////////////////////////////////////////////
 // Classes
@@ -111,3 +111,38 @@ logo.setAttribute("company", "Bankist");
 // logo.classList.remove();
 // logo.classList.toggle();
 // logo.classList.contains();
+
+///////////////////////////////////////////////
+// Smooth Scrolling
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  // const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
+
+  // console.log(e.target.getBoundingClientRect());
+
+  // console.log("Current Scroll (X/Y) ", window.pageXOffset, window.pageYOffset);
+
+  // console.log(
+  //   "height/width viewport",
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
+  // );
+
+  // Scroll
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // // Smooth
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+
+  section1.scrollIntoView({ behavior: "smooth" });
+});
